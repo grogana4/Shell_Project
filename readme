@@ -1,0 +1,114 @@
+MyShell - A simple shell built in python 3.7.2
+
+========================================
+WHAT IS MyShell:
+
+MyShell is simple shell created by Abe Grogan, coded using the cmd module in python as a base and coded in python 3.7.2.
+in this manual, we will describe both commands and operations in the shell, as well as explaining what background execution,
+I/O redirection and enviornment concepts are.
+
+WHAT IS BACKGROUND EXECUTION:
+Background execution is, as simple as it sounds, the execution of background processes.A background process is a type of process
+that runs in the background, without any user input. Examples of these processes include system monitoring, scheduling and
+user notifications. This process is usually a child process created by a control process for processing and running a certain
+task. After it's creation, the child process will run on its own, independent of the control process. The control process is
+free for performing it's own task. in a UNIX/LINUX system, a background process can be identified by a process ID. 
+
+WHAT IS I/O REDIRECTION:
+I/O, which stands for Input/Output, refers to the flow of data inputted by the user (through the use of a I/O device) or other
+processes, and outputted by the machine. Input into the machine is referred to as standard input (stdin), and output from the
+machine is referred to as standard output (stdout) Redirection is a feature in Linux such that when executing a command,
+you can change the standard input/output devices. The basic workflow of any Linux command is that it takes an input and give
+an output. In MyShell, the use of '>', '<', '&' and  '>>' are used as redirection I/O from one source to another. For example,
+the command 'echo "hello world" > result.txt' will take input, in this case "hello world" and output to a text file.
+
+WHAT ARE ENVIRONMENT CONCEPTS:
+Enviornment concepts refer to the enviornment a computer/operating system exists and runs software in.The environment consists
+of a user interface provided by an applications manager and usually an application programming interface (API) to the applications
+manager. In a typical LINUX system, there are multiple enviornments for the machine, such as runtime environment for processes and threads,
+a desktop environment for the Guided User Interface (GUI) and so on. by typing "environ" in MyShell, you'll see all the environment variables. 
+An environment variable is a dynamic-named value that can affect the way running processes will behave on a computer. They are part of the environment
+in which a process runs. For example, a running process can query the value of the TEMP environment variable to discover a suitable location to store temporary files,
+or the HOME or USERPROFILE variable to find the directory structure owned by the user running the process.
+========================================
+
+Program operations
+
+========================================
+
+myshell.py
+
+opens the shell
+
+batchfile
+
+Executes the commands in the file and then exits the shell.
+
+========================================
+
+Shell Commands
+
+========================================
+
+dir [path/to/directory|< filename] [> filename|>> filename]
+Returns the contents of the given directory, or prints the current directory if no argument is given.
+
+clr
+Clears the terminal.
+
+echo comment [< filename] [> filename|>> filename]
+Prints the comment back out to the terminal.
+
+cd [path/to/directory|< filename]
+Changes the current directory to the given one, or displays the current path if none is given.
+
+environ [> filename|>> filename]
+Returns all environment variables and their respective values.
+
+pause
+Pauses use of the shell until the return key is pressed.
+
+help [command]
+Returns listed topics that display help around the certain topic. using 'more' as the [command] will display the user manual 
+
+quit
+Closes the shell
+
+========================================
+
+Subprocesses
+
+========================================
+
+Process [< filename] [> filename|>> filename] [&]
+
+If the command is not a built-in function of the shell, it will be executed as a child process, for example, "python3 foo.py" is perfectly valid and will execute as normal.
+
+Using "&" at the end of the line will cause the process to be forked and the shell will return to the prompt after executing said process.
+
+I/O Redirection
+
+command < <filename>
+
+Uses the given file as input for the command.
+
+
+command >> <filename>
+
+Appends the output of the command to the given file.
+
+command > <filename>
+
+Overwrites data in the given file with the output of the command.
+
+AUTHOR NOTES
+I have had a fun and interesting experience making this shell. Thank you again Donal for teaching an excellent module.
+however, there are a few caveats to this code:
+1.i've done my best ot be exact to your specifications, but for some of my stuff to work, like 'help more', i've had to rewrite
+certain cmd module functions such as help.i have explained everything in my code.
+2. I thought it would be a good challenge to make this shell portable for linux and window systems. however, i have not been able to get
+one of the functions to work for windows. i dont this that'll be much of a problem since this project was mainly for linux
+thank you for reading.
+========================================
+Abe Grogan
+student ID - 17314893 - DCU student, 2019
